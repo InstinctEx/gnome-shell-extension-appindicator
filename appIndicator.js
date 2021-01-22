@@ -26,6 +26,8 @@ const Shell = imports.gi.Shell
 
 const Extension = imports.misc.extensionUtils.getCurrentExtension();
 const Signals = imports.signals
+//blacklisting discord and Play Music
+const UpdateBlacklist = ["discord1", "Google Play Music Desktop Player1"];
 
 const DBusMenu = Extension.imports.dbusMenu;
 const IconCache = Extension.imports.iconCache;
@@ -251,17 +253,31 @@ var AppIndicator = class AppIndicators_AppIndicator {
             if (property == 'Status' ||
                 property.startsWith('Icon') ||
                 property.startsWith('AttentionIcon')) {
-                signalsToEmit.add('icon')
+                //blacklising for icon
+                	if (UpdateBlacklist.includes(this.id))
+                    	Util.Logger.debug("Not updating blacklisted icon");
+               		else
+                    		 signalsToEmit.add('icon')
             }
 
             // same for overlays
+            //blacklising for overlays
             if (property.startsWith('OverlayIcon'))
-                signalsToEmit.add('overlay-icon')
+            	if (UpdateBlacklist.includes(this.id))
+                    Util.Logger.debug("Not updating blacklisted icon");
+                else
+                	signalsToEmit.add('overlay-icon')
 
             // this may make all of our icons invalid
+            //blacklising again :)
             if (property == 'IconThemePath') {
-                signalsToEmit.add('icon')
-                signalsToEmit.add('overlay-icon')
+            	if (UpdateBlacklist.includes(this.id))
+                    Util.Logger.debug("Not updating blacklisted icon");
+                else
+                {
+                	signalsToEmit.add('icon')
+                	signalsToEmit.add('overlay-icon')
+                }
             }
 
             // the label will be handled elsewhere
