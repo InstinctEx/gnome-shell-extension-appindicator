@@ -1,3 +1,7 @@
+# Why did I fork?
+Recently there has been a huge bug in this extension causing many people suffering when joining a Discord Voice chat.I fixed it, no more 100% cpu usage!
+Thanks to scj643, this is  an updated fork based on his!
+
 # AppIndicator/KStatusNotifierItem support for GNOME Shell
 This extension integrates Ubuntu AppIndicators and KStatusNotifierItems (KDE's blessed successor of the systray) into GNOME Shell.
 
