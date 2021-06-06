@@ -1,3 +1,7 @@
+# ARCHIVED 
+
+The issue has been fixed
+
 # Why did I fork?
 Recently there has been a huge bug in this extension causing many people suffering when joining a Discord Voice chat while using specific icon packs.I fixed it, no more 100% cpu usage!
 Thanks to scj643, this is  an updated fork based on his!
